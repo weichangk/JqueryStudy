@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        window.onload = function(){
+            console.log("window.onload 入口函数 1");
+        };
+
+        //jquery 入口函数两种写法
+        //1
+        $(document).ready(function () { 
+            console.log("jquery 入口函数 1");
+         });
+        
+        //2
+        $(function(){
+            console.log("jquery 入口函数 2");
+        });
+
+        //jquery 入口函数和 window.onload 的区别
+        //1. jquery 入口函数可以多个；window.onload 只能一个。
+        //2. 执行顺序不同。
+            //jquery 入口函数要等待页面上的dom树加载完成后执行
+            //window.onload 要等待所有资源都加载完成才执行
+            //jQ3 之前 jquery 入口函数比 window.onload 先执行
+            //jQ3 对于图片、超链接等加载资源少的情况下，只有文本之类的情况下会出现 window.onload 比 jquery 入口函数先执行。！！！（未验证。。。）
+        window.onload = function(){
+            console.log("window.onload 入口函数 2");
+        };
+
+    </script>
+</head>
+<body>
+    <h1>xxxx</h1>
+</body>
+</html>
