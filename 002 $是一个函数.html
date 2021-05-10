@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        //$是什么？
+        //如果报错提示：$ is not defined 说明没有引入jQuery文件。
+        // $(function(){
+        // })
+
+        //引入js文件会执行js中的代码
+        //jQuery文件是一个自执函数，执行jQuery文件中的代码其实就是执行这个自执行函数。
+        //jQuery代码中给window对象添加一个jQuery属性和$属性。window.jQuery = window.$ = jQuery;
+        //$ 和 jQuery 是等价的，是一个函数。
+        // console.log(window); //window对象添加一个jQuery属性和$属性
+        // console.log(window.jQuery === window.$); //$ 和 jQuery 是等价的
+        // console.log(Object.prototype.toString.call($)); //是一个函数。
+
+        
+        //理解jQuery包装器：jQuery包装器使用选择器将自身附加到DOM上，从而达到扩展DOM的目的。
+        //jQuery最强大之处在于操作DOM，因此在对DOM做任何操作之前，我们必须确保DOM已经准备好。
+        //document.ready ()事件处理方法只在DOM完全加载之后触发。
+        //应该把所有jQuery代码都放到document.ready()事件处理函数当中，这样就能保证它们在DOM准备好之后才开始执行。
+        //这个事件类似于JavaScript原生的onLoad事件，不过document.ready()仅在DOM完全准备好之后触发。
+        //$是jQuery的别名，紧随其后的是选择器参数。选择器需要用一对括号括起来。
+        //jQuery别名 ($) 及其选择器参数构成了jQuery包装器。
+
+        //选择器参数不同效果就不一样   
+        //如果参数是匿名函数就是入口函数。
+        // $(function(){
+        // })
+        //如果参数是字符串则为选择器或创建一个标签。
+        // $("#one");
+        // $('<div>lalalalala</div>')
+        //如果参数是dom对象，那么他会把dom对象转换为jQuery对象。
+
+        //避免$与其他库发生冲突
+        //$.noConflict();//不在使用$
+        
+        //给jQuery起新别名
+        // var $jjj = jQuery;
+        // $jjj(function(){
+        //     alert("给jQuery起新别名");
+        // })
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
