@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="third"></div>
+</body>
+</html>
+
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    $(function(){
+        //dom对象：原生js选择器获取的对象，只能调用dom属性和方法不能调用jQuery属性和方法
+        // document.getElementById("");
+        // document.getElementsByClassName("");
+        document.getElementById("one").style.backgroundColor = 'red';
+        //document.getElementById("one").css("backgroundColor","green");//不能调用jQuery属性和方法
+
+        //jQurey对象：利用jQuery选择器获取的对象，只能调用用jQuery属性和方法不能调用dom属性和方法
+
+        $("#two").css("backgroundColor","green");
+
+        console.log($("#two"));//查看jQuery对象拥有的属性和方法
+        console.log($("div"));//jQuery对象是dom对象的包装集，是一个伪数组。
+
+
+        //DOM对象转换jQuery对象
+        var div3 = document.getElementById("third");
+        console.log(div3);
+        //console.log($("div3"));//错误的转换写法
+        console.log($(div3));
+
+        //jQuery对象转换DOM对象
+        //1.使用下标转换
+        var $divs = $("div");
+        console.log($divs[1]); 
+
+        //2.使用jQuery的get方法转换
+        console.log($divs.get(2)); 
+        
+        var $div1 = $("#one");
+        console.log($div1); 
+        console.log($div1.get(0)); 
+
+    })
+</script>
