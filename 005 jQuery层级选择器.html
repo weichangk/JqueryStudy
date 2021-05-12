@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <div id="father">
+        <div>
+            <span>span1</span>
+            <span>span2</span>
+            <span>span3</span>
+        </div>
+        <div>
+            <b>1</b>
+            <div>div1</div>
+            <div>div2</div>
+            <div>div3</div>
+            <p></p>
+        </div>
+        <div></div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <span>sss1</span>
+    </div>
+    <div>
+        <h1>h1h1h1</h1>
+        <h2>h2h2h2</h2>
+    </div>
+    <label>Name:</label>
+    <input name="name" />
+    <fieldset>
+        <label>Newsletter:</label>
+        <input name="newsletter" />
+    </fieldset>
+</body>
+<input name="none" />
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+<!--
+jQuery层级选择器
+名称                用法                    描述
+子代选择器          $("ul > li")            使用 > 符号获取儿子层级的元素，并不会获取孙子层级的元素。
+后代选择器          $("ul li")              使用空格获取在给定的祖先元素下匹配所有的后代元素
+紧接后元素选择器     $("prev + next")        匹配所有紧接在 prev 元素后的 next 元素
+同辈选择器          $("prev ~ siblings")    匹配 prev 元素之后的所有同辈元素
+-->
+
+<script>
+    $(function(){
+        //使用子代选择器 获取id为father元素的所有子div     
+        console.log($("#father > div"));
+
+        //使用子代选择器 获取id为father元素的所有子div  和 所有子p
+        console.log($("#father > div, #father > p"));
+
+        //使用后代选择器 获取id为father元素的所有后代div
+        console.log($("#father div"));
+
+        //使用紧接后元素选择器 设置元素样式
+        $("label + input").css("backgroundColor", "red");
+
+        //使用同辈选择器
+        $("h1 ~ h2").css("backgroundColor", "green");
+    })
+</script>
