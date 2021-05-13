@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{width:200px;font-family: Arial;}
+        ul li{border-bottom: 1px solid#333;}
+        ul li a{text-decoration-line: none;}
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>product</th>
+            <th>description</th>
+            <th>price</th>
+        </tr>
+        <tr>
+            <td>paper towels</td>
+            <td>the most absorbent paper towels</td>
+            <td>$18.99</td>
+        </tr>
+        <tr>
+            <td>paper napkins</td>
+            <td>perfect for your outdoor gathering.</td>
+            <td>$16.99</td>
+        </tr>
+        <tr>
+            <td>paper plates</td>
+            <td>the best value.</td>
+            <td>$5.99</td>
+        </tr>
+        <tr>
+            <td>plastic forks</td>
+            <td>the essential picnic accessory</td>
+            <td>$2.99</td>
+        </tr>
+    </table>
+
+    <div id="sidebar">
+        <h1>my sidebar</h1>
+        <ul>
+            <li><a href="">home</a></li>
+            <li><a href="">about us</a></li>
+            <li><a href="">customer service</a></li>
+            <li><a href="">contact us</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+
+<!--
+名字                    功能                                                                
+:even 和 :odd           匹配结果集中顺序为偶数或奇数的元素                          
+:header                 匹配标题元素h1、h2、h3...
+:not                    不匹配后面选择器的元素                                                
+:eq(index)              匹配顺序号等于index的元素
+:gt(index)              匹配顺序号大于index的元素
+:lt(index)              匹配顺序号小于index的元素           
+:first-child last-child only-child nth-child(index) 分别匹配第一个、最后一个、“独生子”元素、第index个子元素         
+:has(p)                 匹配包含p元素的元素
+:contains("xxx")        匹配包含xxx文本的元素
+:empty                  匹配误内容的元素（如：<img>或<p>）
+:parent                 匹配拥有子元素的元素
+:hidden                 匹配不可见元素
+:visible                匹配可见的元素
+:animated               匹配处于动画过程中的元素
+:lang
+:focus
+:root
+:target
+-->
+
+
+<script>
+
+    $(function(){
+        //利用:even和:odd 筛选器生成条纹表格
+        $("tr:even").css("background","#dedede");
+        $("tr:odd").css("background","#ffffff");
+
+        //为列表第一和最后一个元素设置样式
+        $("ul li:first").css("border","none");
+        $("ul li:last").css("border","none");
+    })
+
+
+
+</script>
