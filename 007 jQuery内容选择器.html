@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="containsTest">
+        <p>My name is Donald.</p>
+        <p>I live in Duckburg.</p>
+        <p>My best friend is Mickey.</p>
+    </div>
+    <hr>
+    <div id="emptyTest">
+        <table border="1">
+            <tr>
+                <th>序号</th>
+                <th>站点名</th>
+                <th>网址</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Google</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Runoob</td>
+                <td>runoob.com</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Taobao</td>
+                <td>taobao.com</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td></td>
+                <td>baidu.com</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Sina</td>
+                <td>sina.com.cn</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Facebook</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>twitter</td>
+                <td>twitter.com</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>youtube</td>
+                <td>youtube.com</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <div id="hasTest">
+        <p><span>p 元素中的 span 元素</span></p>
+        <p>这个 p 元素没有 span 元素</p>
+    </div>
+    <hr>
+    <div id="parentTest">
+        <table border="1">
+            <tr>
+                <th>序号</th>
+                <th>站点名</th>
+                <th>网址</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Google</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Runoob</td>
+                <td>runoob.com</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Taobao</td>
+                <td>taobao.com</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td></td>
+                <td>baidu.com</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Sina</td>
+                <td>sina.com.cn</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Facebook</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>twitter</td>
+                <td>twitter.com</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>youtube</td>
+                <td>youtube.com</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+<!--
+:contains(text)                     匹配包含给定文本的元素
+:empty                              匹配所有不包含子元素或者文本的空元素
+:has(selector)                      匹配含有选择器所匹配的元素的元素
+:parent                             匹配含有子元素或者文本的元素
+-->
+
+<script>
+    $(function(){
+        //contains(text)                     匹配包含给定文本的元素
+        $("#containsTest p:contains('is')").css("background-color","yellow");
+
+        //:empty                              匹配所有不包含子元素或者文本的空元素
+        $("#emptyTest :empty").css("background-color","yellow");
+
+        //:has(selector)                      匹配含有选择器所匹配的元素的元素
+        $("#hasTest p:has(span)").css("border","solid red");
+
+        //:parent                             匹配含有子元素或者文本的元素
+        $("#parentTest td:parent").css("background-color","yellow");
+    })
+</script>
