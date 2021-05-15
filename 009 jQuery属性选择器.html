@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>attribute</p>
+    <div id="attribute">
+        <h1>欢迎访问我的主页</h1>
+        <p>学的不仅是技术，更是梦想！</p>
+
+        <p>你最喜欢的网站:</p>
+        <ul id="choose">
+        <li>Google</li>
+        <li>Taobao</li>
+        <li>Runoob</li>
+        </ul>
+    </div>
+    <hr>
+    <p>attribute1</p>
+    <div id="attribute1">
+        <p>你最喜欢的网站:</p>
+        <ul id="choose">
+        <li>Google</li>
+        <li>Taobao</li>
+        <li>Runoob</li>
+        </ul>
+    </div>
+    <hr>
+    <p>attribute2</p>
+    <div id="attribute2">
+        <p class="intro">卷得很</p>
+        <p>学的不仅是技术，更是梦想！</p>
+        <p>你最喜欢的网站:</p>
+        <ul id="choose">
+        <li>Google</li>
+        <li>Taobao</li>
+        <li>Runoob</li>
+        </ul>
+    </div>
+    <hr>
+    <p>attribute3</p>
+    <div id="attribute3">
+        <p class="first_test">The first p element.</p>
+        <p class="second">The second p element.</p>
+        <div class="test">The first div element.</div>
+        <p class="test">This is some text in a paragraph.</p>
+    </div>
+    <hr>
+    <p>attribute4</p>
+    <div id="attribute4">
+        <p class="first_test">The first p element.</p>
+        <p class="second">The second p element.</p>
+        <div class="test">The first div element.</div>
+        <p class="test">This is some text in a paragraph.</p>
+    </div>
+    <hr>
+    <p>attribute5</p>
+    <div id="attribute5">
+        <p class="first_test">The first p element.</p>
+        <p class="second">The second p element.</p>
+        <div class="test">The first div element.</div>
+        <p class="test">This is some text in a paragraph.</p>
+    </div>
+    <hr>
+    <p>attribute6</p>
+    <div id="attribute6">
+        <p lang="en">Hello!</p>
+        <p lang="en-us">Hi!</p>
+        <p lang="en-gb">Ello!</p>
+        <p lang="us">Hi!</p>
+        <p lang="no">Hei!</p>
+    </div>
+    <hr>
+    <p>attribute7</p>
+    <div id="attribute7">
+        <input type="text" id="txt1" value="11 txt1">
+        <input type="text" id="txt1" value="22 txt2">
+        <input type="text" id="txt1" value="33 txt3">
+    </div>
+    <hr>
+    <p>attribute8</p>
+    <div id="attribute8">
+        <input id="man-news" name="man-news" />
+        <input name="milkman" />
+        <input id="letterman" name="new-letterman" />
+        <input name="newmilk" />       
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+
+<!--
+$("[attribute]")                匹配选取带有指定属性的每个元素。
+$("[attribute=value]")          匹配给定的属性是某个特定值的元素。
+$("[attribute!=value]")         匹配所有不含有指定的属性，或者属性不等于特定值的元素。
+$("[attribute^=value]")         匹配给定的属性是以某些值开始的元素。
+$("[attribute$=value]")         匹配给定的属性是以某些值结尾的元素
+$("[attribute*=value]")         匹配给定的属性是以包含某些值的元素。
+$("[attribute|=value]")         匹配目标属性的值等于value或者以value开头且其后紧跟一个连字符（-）
+$("[attribute~=value]")         匹配目标属性的值包含value中的任何一个子串（value由多个子串组成，子串之间由空格分隔）
+$("[selector1][selector2][selectorN]")  复合属性选择器，需要同时满足多个条件时使用。
+-->
+
+<script>
+    $(function(){
+        // $("[attribute]")                匹配选取带有指定属性的每个元素。
+        $("#attribute [id]").css("background-color","yellow");
+
+        // $("[attribute=value]")          匹配给定的属性是某个特定值的元素。
+        $("#attribute1 [id=choose]").css("background-color","yellow");
+
+        // $("[attribute!=value]")         匹配所有不含有指定的属性，或者属性不等于特定值的元素。
+        $("#attribute2 p[class='intro']").css("background-color","yellow");
+
+        // $("[attribute^=value]")         匹配给定的属性是以某些值开始的元素。
+        $("#attribute3 p[class^='test']").css("background-color","yellow");
+
+        // $("[attribute$=value]")         匹配给定的属性是以某些值结尾的元素
+        $("#attribute4 p[class$='test']").css("background-color","yellow");
+
+        // $("[attribute*=value]")         匹配给定的属性是以包含某些值的元素。
+        $("#attribute5 p[class*='test']").css("background-color","yellow");
+
+        // $("[attribute|=value]")         匹配目标属性的值等于value或者以value开头且其后紧跟一个连字符（-）
+        $("#attribute6 p[lang|='en']").css("background-color","yellow");
+
+        // $("[attribute~=value]")         匹配目标属性的值包含value中的任何一个子串（value由多个子串组成，子串之间由空格分隔）
+        $("#attribute7 input[value~='txt2']").css("background-color","yellow");
+
+        // $("[selector1][selector2][selectorN]")  复合属性选择器，需要同时满足多个条件时使用。
+        $("#attribute8 input[id][name$='man']").css("background-color","yellow");
+    })
+</script>
