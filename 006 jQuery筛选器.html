@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <table>
+    <table id="evenoddTest">
         <tr>
             <th>product</th>
             <th>description</th>
@@ -39,8 +39,8 @@
             <td>$2.99</td>
         </tr>
     </table>
-
-    <div id="sidebar">
+    <hr>    
+    <div id="firstlastTest">
         <h1>my sidebar</h1>
         <ul>
             <li><a href="">home</a></li>
@@ -49,45 +49,104 @@
             <li><a href="">contact us</a></li>
         </ul>
     </div>
+    <hr>    
+    <div id="headerTest">
+        <h1>h1h1h1h1</h1>
+        <p>ppppp</p>
+        <h2>h2h2h2h2</h2>
+    </div>
+    <hr>    
+    <div id="notTest">
+        <p class="not">p1</p>
+        <p>p2</p>
+        <p>p3</p>
+    </div>
+    <hr>    
+    <table id="eqTest">
+        <tr><td>Header 1</td></tr>
+        <tr><td>Value 1</td></tr>
+        <tr><td>Value 2</td></tr>
+    </table>
+    <hr>    
+    <table id="gtTest">
+        <tr><td>Header 1</td></tr>
+        <tr><td>Value 1</td></tr>
+        <tr><td>Value 2</td></tr>
+    </table>
+    <hr>
+    <div id="animatedTest">
+        <button class="btn1">修改动画元素颜色</button>
+        <div style="background:blue;">Div 1</div>
+        <div style="background:green;">Div 2</div>
+        <div style="background:yellow;">Div 3</div>
+    </div>
+    <hr>
+    <div id="focusTest">
+        <input type="text" name="">
+    </div>
+    <hr>
+
 </body>
 </html>
 <script src="js/jquery-3.6.0.js"></script>
 
 <!--
 名字                    功能                                                                
-:even 和 :odd           匹配结果集中顺序为偶数或奇数的元素                          
+:even 和 :odd           匹配结果集中顺序为偶数或奇数的元素    
+:first-child last-child only-child nth-child(index) 分别匹配第一个、最后一个、“独生子”元素、第index个子元素                        
 :header                 匹配标题元素h1、h2、h3...
 :not                    不匹配后面选择器的元素                                                
 :eq(index)              匹配顺序号等于index的元素
 :gt(index)              匹配顺序号大于index的元素
-:lt(index)              匹配顺序号小于index的元素           
-:first-child last-child only-child nth-child(index) 分别匹配第一个、最后一个、“独生子”元素、第index个子元素         
-:has(p)                 匹配包含p元素的元素
-:contains("xxx")        匹配包含xxx文本的元素
-:empty                  匹配误内容的元素（如：<img>或<p>）
-:parent                 匹配拥有子元素的元素
-:hidden                 匹配不可见元素
-:visible                匹配可见的元素
+:lt(index)              匹配顺序号小于index的元素      
+:lang                   匹配指定语言的所有元素
 :animated               匹配处于动画过程中的元素
-:lang
-:focus
-:root
-:target
+:focus                  匹配当前获取焦点的元素。
+:root                   选择该文档的根元素              
+:target                 选择由文档URI的格式化识别码表示的目标元素。
 -->
 
 
 <script>
 
     $(function(){
-        //利用:even和:odd 筛选器生成条纹表格
-        $("tr:even").css("background","#dedede");
+        //使用:even和:odd生成条纹表格
+        $("#evenoddTest tr:even").css("background","#dedede");
         $("tr:odd").css("background","#ffffff");
 
-        //为列表第一和最后一个元素设置样式
-        $("ul li:first").css("border","none");
-        $("ul li:last").css("border","none");
+        //使用:first和:last为列表第一和最后一个元素设置样式
+        $("#firstlastTest ul li:first").css("border","none");
+        $("#firstlastTest ul li:last").css("border","none");
+
+        //使用:header匹配标题元素
+        $("#headerTest :header").css("background","red")
+
+        //使用:not去除所有与给定选择器匹配的元素
+        $("#notTest p:not(.not)").css("background","green")
+
+        //使用:eq匹配一个给定索引值的元素
+        $("#eqTest tr:eq(1)").css("color","red")
+
+        //使用:gt匹配顺序号大于index的元素
+        $("#gtTest tr:gt(0)").css("color","red")
+
+        //使用:animated匹配处于动画过程中的元素
+        function aniDiv(){
+            $("#animatedTest div:eq(0)").animate({width:"50%"},"slow");
+            $("#animatedTest div:eq(0)").animate({width:"100%"},"slow",aniDiv);
+        }
+        aniDiv();
+        $("#animatedTest .btn1").click(function(){
+            $("#animatedTest :animated").css("background-color","red");
+        });
+
+        //使用:focus匹配当前获取焦点的元素。
+        $("#focusTest input").focus();
+        $(":focus").css("background-color","yellow")
+
+        //使用:root设置HTML文档的背景颜色
+        $(":root").css("background","rgb(231, 231, 208)")
+
     })
-
-
 
 </script>
