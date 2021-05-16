@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>:input              匹配所有 input, textarea, select 和 button 元素</p>
+    <div id="inputTest">    
+        <input type="button" value="input button">
+        <input type="checkbox" name="" id="">
+        <input type="file" name="" id="">
+        <input type="hidden" name="">
+        <input type="image" src="" alt="">
+        <input type="password" name="" id="">
+        <input type="radio" name="" id="">
+        <input type="reset" value="">
+        <input type="submit" value="">
+        <input type="text" name="" id="">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <select name="" id=""><option value=""></option></select>
+        <button>button</button>
+    </div>
+    <hr>
+<!---->
+    <div id="all">    
+        <input type="text" />     
+        <input type="password" />
+        <input type="radio" />       
+        <input type="checkbox" />
+        <input type="submit" />     
+        <input type="image" src="" alt="image...">
+        <input type="reset" />
+        <input type="button" />
+        <input type="file" />
+
+        <!-- <select><option/></select>
+        <textarea></textarea>
+        <button>button</button> -->
+    </div>
+    <hr>
+
+</body>
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+<!--
+:input              匹配所有 input, textarea, select 和 button 元素
+:text               匹配所有的单行文本框
+:password           匹配所有密码框
+:radio              匹配所有单选按钮
+:checkbox           匹配所有复选框
+:submit             匹配所有提交按钮，理论上只匹配 type="submit" 的input或者button，但是现在的很多浏览器，button元素默认的type即为submit，所以很多情况下，不设置type的button也会成为筛选结果。
+:image              匹配所有图像域
+:reset              匹配所有重置按钮
+:button             匹配所有按钮
+:file               匹配所有文件域
+-->
+
+<script>
+    $(function(){
+        // :input              匹配所有 input, textarea, select 和 button 元素
+        $("#inputTest :input").css("background-color","red");
+
+        // :text               匹配所有的单行文本框
+        $("#all :text").css("background-color","red");
+
+        // :password           匹配所有密码框
+        $("#all :password").css("background-color","green");
+
+        // :radio              匹配所有单选按钮
+        $("#all :radio").wrap("<span style='background-color:yellow' />");
+
+        // :checkbox           匹配所有复选框
+        $("#all :checkbox").wrap("<span style='background-color:black' />");
+
+        // :submit             匹配所有提交按钮，理论上只匹配 type="submit" 的input或者button，但是现在的很多浏览器，button元素默认的type即为submit，所以很多情况下，不设置type的button也会成为筛选结果。
+        $("#all :submit").css("background-color","blue");
+
+        // :image              匹配所有图像域
+        $("#all :image").css("background-color","red");
+
+        // :reset              匹配所有重置按钮
+        $("#all :reset").css("background-color","green");
+
+        // :button             匹配所有按钮
+        $("#all :button").css("background-color","yellow");
+
+        // :file               匹配所有文件域
+        $("#all :file").css("background-color","black");
+    })
+</script>
