@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>:first-child                            选取属于其父元素的第一个子元素。</p>
+    <div id="firstchildtest">
+        <p>The first paragraph in body.</p>
+
+        <div style="border:1px solid;">
+        <p>The first paragraph in div.</p>
+        <p>The last paragraph in div.</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+        <span>This is a span element.</span>
+        <p>The first paragraph in another div.</p>
+        <p>The last paragraph in another div.</p>
+        </div>
+
+        <p>The last paragraph in body.</p>
+    </div>
+    <hr>
+<!---->
+    <p>:first-of-type                          选取属于其父元素的特定类型的第一个子元素的所有元素。</p>
+    <div id="firstoftypetest">
+        <p>body 中第一个段落。</p>
+
+        <div style="border:1px solid;">
+            <p>div 中第一个段落。</p>
+            <p>div 中的最后一个段落。</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+            <span>这是一个 span 元素。</span>
+            <p>另一个 div 中第一个段落。</p>
+            <p>另一个 div 中的最后一个段落。</p>
+        </div>
+
+        <p>body 中最后一个段落。</p>
+    </div>
+    <hr>
+<!---->
+    <p>:last-child                             选取属于其父元素的最后一个子元素。</p>
+    <div id="lastchildtest">
+        <p>body 中第一个段落。</p>
+
+        <div style="border:1px solid;">
+            <p>div 中第一个段落。</p>
+            <p>div 中的最后一个段落。</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+            <p>另一个 div 中第一个段落。</p>
+            <p>另一个 div 中的最后一个段落。</p>
+            <span>这是一个 span 元素。</span>
+        </div>
+
+        <p>body 中最后一个段落。</p>
+    </div>
+    <hr>
+<!---->
+    <p>:last-of-type                           选取属于其父元素的特定类型的最后一个子元素的所有元素。</p>
+    <div id="lastoftypetest">
+        <p>body 中第一个段落。</p>
+
+        <div style="border:1px solid;">
+            <p>div 中第一个段落。</p>
+            <p>div 中的最后一个段落。</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+            <p>另一个 div 中第一个段落。</p>
+            <p>另一个 div 中的最后一个段落。</p>
+            <span>这是一个 span 元素。</span>
+        </div>
+
+        <p>body 中最后一个段落。</p>
+    </div>
+    <hr>
+<!---->
+    <p>:nth-child                              选取属于其父元素的不限类型的第 n 个子元素的所有元素。</p>
+    <div id="nthchildtest">
+        <h1>body 中的标题</h1>
+        <p>body 中第一个段落。</p>
+        <p>body 中第二个段落（body 的第三个子元素）。</p>
+
+        <div style="border:1px solid;">
+        <span>div 中的一个 span 元素。</span>
+        <p>div 中第一个段落。</p>
+        <p>div 中第二个段落（div 的第三个子元素）。</p>
+        <p>div 中的最后一个段落。</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+            <p>另一个 div 中第一个段落。</p>
+            <p>另一个 div 中第二个段落。</p>
+            <p>另一个 div 中的最后一个段落（div 的第三个子元素）。</p>
+        </div>
+
+        <p>body 中最后一个段落。</p>
+    </div>
+    <hr>
+<!---->
+    <p>:nth-last-child(n|even|odd|formula)     选取属于其父元素的不限类型的第 n 个子元素的所有元素，从最后一个子元素开始计数。</p>
+    <div id="nthlastchildtest">
+        <h1>这是在 body 中的标题</h1>
+        <p>这是在 body 中的第一个段落。</p>
+        <p>这是在 body 中的第二个段落。</p>
+
+        <div style="border:1px solid;">
+        <span>这是在 div 中的 span 元素</span>
+        <p>这是在 div 中的第一个段落 (从 div 最后一个子元素算起的第三个子元素)。</p>
+        <p>这是在 div 中的第二个段落</p>
+        <p>这是在 div 中的最后个段落</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+        <p>这是在另一个 div 中的第一个段落 (从 div 最后一个子元素算起的第三个子元素)。</p>
+        <p>这是在另一个 div 中的第二个段落</p>
+        <p>这是在另一个 div 中的最后个段落</p>
+        </div>
+
+        <p>这是在 body 中的最后一个段落。</p>
+    </div>
+    <hr>
+<!---->
+    <p>:nth-last-of-type(n|even|odd|formula)   选取属于其父元素的特定类型的第 n 个子元素的所有元素，从最后一个子元素开始计数。</p>
+    <div id="nthlastoftypetest">
+        <h1>这是在 body 中的标题</h1>
+        <p>这是在 body 中的第一个段落 (从 body 最后一个段落开始算起的第三个段落)。</p>
+        <p>这是在 body 中的第二个段落</p>
+
+        <div style="border:1px solid;">
+        <span>这是在 div 中的 span 元素</span>
+        <p>这是在 div 中的第一个段落 (从这个 div 最后一个段落开始算起的第三个段落)</p>
+        <p>这是在 div 中的第二个段落</p>
+        <p>这是在 div 中的最后一个段落</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+        <p>这是在另外一个 div 中的第一个段落 (从这个 div 最后一个段落开始算起的第三个段落)</p>
+        <p>这是在另外一个 div 中的第二个段落</p>
+        <p>这是在另外一个 div 中的最后一个段落</p>
+        </div>
+
+        <p>这是在 body 中的最后一个段落</p>
+    </div>
+    <hr>
+<!---->
+    <p>:nth-of-type(n|even|odd|formula)        选取属于其父元素的特定类型的第 n 个子元素的所有元素。</p>
+    <div id="nthoftypetest">
+        <h1>这是在 body 中的标题</h1>
+        <p>这是在 body 中的第一个段落。</p>
+        <p>这是在 body 中的第二个段落。</p>
+
+        <div style="border:1px solid;">
+        <span>这是在 div 中的 span 元素</span>
+        <p>这是在 div 中的第一个段落</p>
+        <p>这是在 div 中的第二个段落</p>
+        <p>这是在 div 中的最后一个(第三)段落</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+        <p>这是在另一个 div 中的第一个段落</p>
+        <p>这是在另一个 div 中的第二个段落</p>
+        <p>这是在另一个 div 中的最后一个（第三个）段落</p>
+        </div>
+
+        <p>这是在 body 中的最后一个（第三个）段落。</p>
+    </div>
+    <hr>
+<!---->
+    <p>:only-child                             选取属于其父元素的唯一子元素的每个元素。</p>
+    <div id="onlychildtest">
+        <div style="border:1px solid;">
+        <p>第一个子元素</p>
+        <p>最后一个子元素</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+        <p>只有一个子元素</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+        <p>第一个子元素</p>
+        <p>最后一个子元素</p>
+        </div><br>
+    </div>
+    <hr>
+<!---->
+    <p>:only-of-type                           选取属于其父元素的特定类型的唯一子元素的每个元素。</p>
+    <div id="onlyoftypetest">
+        <div style="border:1px solid;">
+        <p>第一个段落</p>
+        <p>最后一个段落</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+        <p>只有一个段落</p>
+        </div><br>
+
+        <div style="border:1px solid;">
+        <span>这是 span 元素</span>
+        <p>唯一的段落</p>
+        </div><br>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+<!--
+:first-child                            选取属于其父元素的第一个子元素。
+:first-of-type                          选取属于其父元素的特定类型的第一个子元素的所有元素。
+:last-child                             选取属于其父元素的最后一个子元素。
+:last-of-type                           选取属于其父元素的特定类型的最后一个子元素的所有元素。
+:nth-child                              选取属于其父元素的不限类型的第 n 个子元素的所有元素。
+:nth-last-child(n|even|odd|formula)     选取属于其父元素的不限类型的第 n 个子元素的所有元素，从最后一个子元素开始计数。
+:nth-last-of-type(n|even|odd|formula)   选取属于其父元素的特定类型的第 n 个子元素的所有元素，从最后一个子元素开始计数。
+:nth-of-type(n|even|odd|formula)        选取属于其父元素的特定类型的第 n 个子元素的所有元素。
+:only-child                             选取属于其父元素的唯一子元素的每个元素。
+:only-of-type                           选取属于其父元素的特定类型的唯一子元素的每个元素。
+-->
+
+<script>
+    $(function(){
+        // :first-child                            选取属于其父元素的第一个子元素。
+        $("#firstchildtest p:first-child").css("background-color","yellow");
+
+        // :first-of-type                          选取属于其父元素的特定类型的第一个子元素的所有元素。
+        $("#firstoftypetest p:first-of-type").css("background-color","yellow");
+        
+        // :last-child                             选取属于其父元素的最后一个子元素。
+        $("#lastchildtest p:last-child").css("background-color","yellow");
+
+        // :last-of-type                           选取属于其父元素的特定类型的最后一个子元素的所有元素。
+        $("#lastoftypetest p:last-of-type").css("background-color","yellow");
+
+        // :nth-child                              选取属于其父元素的不限类型的第 n 个子元素的所有元素。
+        $("#nthchildtest p:nth-child(3)").css("background-color","yellow");
+
+        // :nth-last-child(n|even|odd|formula)     选取属于其父元素的不限类型的第 n 个子元素的所有元素，从最后一个子元素开始计数。
+        $("#nthlastchildtest p:nth-last-child(3)").css("background-color","yellow");
+
+        // :nth-last-of-type(n|even|odd|formula)   选取属于其父元素的特定类型的第 n 个子元素的所有元素，从最后一个子元素开始计数。
+        $("#nthlastoftypetest p:nth-last-of-type(3)").css("background-color","yellow");
+
+        // :nth-of-type(n|even|odd|formula)        选取属于其父元素的特定类型的第 n 个子元素的所有元素。
+        $("#nthoftypetest p:nth-of-type(3)").css("background-color","yellow");
+
+        // :only-child                             选取属于其父元素的唯一子元素的每个元素。
+        $("#onlychildtest p:only-child").css("background-color","yellow");
+
+        // :only-of-type                           选取属于其父元素的特定类型的唯一子元素的每个元素。
+        $("#onlyoftypetest p:only-of-type").css("background-color","yellow");
+    })
+</script>
