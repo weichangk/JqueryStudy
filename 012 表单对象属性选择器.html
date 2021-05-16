@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>:enabled                匹配所有可用元素</p>
+    <p>:disabled               匹配所有不可用元素</p>
+    <div id="enabledTest">
+        用户名: <input type="text" name="user"><br>
+        ID:<input type="text" name="id" disabled="disabled">
+        年龄:
+        <select disabled="disabled">
+            <option>20-30</option>
+            <option>30-50</option>
+            <option>50+</option>
+        </select>
+        <input type="submit">       
+    </div>
+    <hr>
+    <div id="checkedTest">
+        我有一辆自行车:
+        <input type="checkbox" name="vehicle" value="Bike"><br>
+        我有一辆汽车:
+        <input type="checkbox" name="vehicle" value="Car" checked="checked"><br>
+        我有一架飞机:
+        <input type="checkbox" name="vehicle" value="Airplane"><br>
+        我有一个radio1:
+        <input type="radio" name="radio1" id="" checked="checked"><br>
+        我有一个select:
+        <select>
+        <option>Volvo</option>
+        <option selected="selected">Saab</option>
+        <option>Mercedes</option>
+        <option>Audi</option>
+        </select>
+    </div>
+    <hr>
+    <div id="selectedTest">
+        我有一个select:
+        <select>
+        <option>Volvo</option>
+        <option selected="selected">Saab</option>
+        <option>Mercedes</option>
+        <option>Audi</option>
+        </select>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+<!--
+:enabled                匹配所有可用元素
+:disabled               匹配所有不可用元素
+:checked                匹配所有选中的被选中元素(复选框、单选框等，select中的option)，对于select元素来说，获取选中推荐使用 :selected
+:selected               匹配所有选中的option元素
+-->
+<script>
+    $(function(){
+        // :enabled                匹配所有可用元素
+        $("#enabledTest :enabled").css("background-color","red");
+
+        // :disabled               匹配所有不可用元素
+        $("#enabledTest :disabled").css("background-color","yellow");
+
+        // :checked                匹配所有选中的被选中元素(复选框、单选框等，select中的option)，对于select元素来说，获取选中推荐使用 :selected
+        $("#checkedTest :checked").wrap("<span style='background-color:red' />");
+
+        // :selected               匹配所有选中的option元素
+        $("#selectedTest :selected").css("background-color","red");
+    })
+</script>
