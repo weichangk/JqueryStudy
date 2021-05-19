@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+.css(name|pro|[,val|fn])                        访问或设置匹配元素的样式属性。
+.hasClass(class)                                检查当前的元素是否含有某个特定的类，如果有，则返回true。
+.addClass(class|fn)                             为每个匹配的元素添加指定的类名。
+.removeClass([class|fn])                        从所有匹配的元素中删除全部或者指定的类。
+.toggleClass(class|fn[,sw])                     如果存在（不存在）就删除（添加）一个类。                             
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .addorremovestyle{
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="cssTest">
+        <h3 class="css">.css(name|pro|[,val|fn])                        访问或设置匹配元素的样式属性。</h3>
+        <h3 class="addorremoveClass">.addClass(class|fn)                             为每个匹配的元素添加指定的类名。</h3>
+        <h3 class="addorremoveClass">.removeClass([class|fn])                        从所有匹配的元素中删除全部或者指定的类。</h3>
+        <h3 class="toggleClass">.toggleClass(class|fn[,sw])                     如果存在（不存在）就删除（添加）一个类。</h3>
+        <button class="addorremoveClass">add or remove Class</button>
+        <button class="toggleClass">toggle Class</button>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    // .css(name|pro|[,val|fn])                        访问或设置匹配元素的样式属性。
+    $("#cssTest h3.css").css("background-color", "red");
+
+    // .hasClass(class)                                检查当前的元素是否含有某个特定的类，如果有，则返回true。
+    // .addClass(class|fn)                             为每个匹配的元素添加指定的类名。
+    // .removeClass([class|fn])                        从所有匹配的元素中删除全部或者指定的类。
+    $("#cssTest button.addorremoveClass").click(function(){
+        if(!$("#cssTest h3.addorremoveClass").hasClass("addorremovestyle"))
+        {
+            $("#cssTest h3.addorremoveClass").addClass("addorremovestyle");
+        }
+        else
+        {
+            $("#cssTest h3.addorremoveClass").removeClass("addorremovestyle");
+        }
+    })
+
+    // .toggleClass(class|fn[,sw])                     如果存在（不存在）就删除（添加）一个类。  
+    $("#cssTest button.toggleClass").click(function(){
+        $("#cssTest h3.toggleClass").toggleClass("addorremovestyle");
+    })
+</script>
