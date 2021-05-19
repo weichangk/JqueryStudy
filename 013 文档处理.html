@@ -18,14 +18,14 @@
     wrapAll(html|ele|fn)            用HTML结构将匹配元素集合中的所有元素包装起来。
     wrapInner(html|ele|fn)          在匹配元素集合中的每个元素的内容周围包装一个HTML结构。
 替换
-    replaceWith(content|fn)
-    replaceAll(selector)
+    replaceWith(content|fn)         用提供的新内容替换匹配元素集合中的每个元素，并返回被删除的元素集合。
+    replaceAll(selector)            用匹配的元素集合替换每个目标元素。
 删除
-    empty()
-    remove([expr])
-    detach([expr])
+    empty()                         从DOM中删除匹配元素集合的所有子节点。
+    remove([expr])                  从DOM中删除匹配的元素集。
+    detach([expr])                  从DOM中删除匹配的元素集。
 复制
-    clone([Even[,deepEven]])
+    clone([Even[,deepEven]])        克隆匹配的DOM元素并且选中这些克隆的副本。
 -->
 <html lang="en">
 <head>
@@ -35,28 +35,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>html()</h1>
+    <h1>html()                          设置或返回被选元素的内容。</h1>
     <div id="htmlTest">
         <p>i run 4 times a week.</p>
         <p>i lift weights 3 times a week.</p>
     </div>
     <hr>
 <!---->
-    <h1>text()</h1>
+    <h1>text()                          设置或返回被选元素的文本内容。</h1>
     <div id="textTest">
         <p>i run 4 times a week.</p>
         <p>i lift weights 3 times a week.</p>
     </div>
     <hr>
 <!---->
-    <h1>append()</h1>
+    <h1>append(content|fn)              向每个匹配的元素内部追加内容。</h1>
     <div id="appendTest">
         <p>i is appendTest</p>
         <h7>i is appendTest h7</h7>
     </div>
     <hr>
 <!---->
-    <h1>appendTo()</h1>
+    <h1>appendTo(content)               把所有匹配的元素追加到另一个指定的元素元素集合中。</h1>
     <div id="appendToTest">
         <p>i is appendTo test</p>
         <span></span>
@@ -64,7 +64,7 @@
     </div>
     <hr>
 <!---->
-    <h1>prepend()</h1>
+    <h1>prepend(content|fn)             向每个匹配的元素内部前置内容。</h1>
     <div id="prependTest">
         <p>I would like to say: </p>
         <p>I would like to say: </p>
@@ -73,42 +73,42 @@
     </div>
     <hr>
 <!---->  
-    <h1>prependTo()</h1>
+    <h1>prependTo(content)              把所有匹配的元素前置到另一个、指定的元素元素集合中。</h1>
     <div id="prependToTest">
         <p>I would like to say: </p>
         <div id="foo">xxx</div>
     </div>
     <hr>
 <!---->  
-    <h1>after()</h1>
+    <h1>after(content|fn)               在每个匹配的元素之后插入内容。</h1>
     <div id="afterTest">
         <p id="p1">i is after() test.</p>
         <b id="foo">foo foo</b><p id="p2">I would like to say: </p>
     </div>
     <hr>
 <!---->     
-    <h1>before()</h1>
+    <h1>before(content|fn)              在每个匹配的元素之前插入内容。</h1>
     <div id="beforeTest">
         <p id="p1">i is before() test.</p>
         <p id="p2">I would like to say: </p><b id="foo">foo foo</b>
     </div>
     <hr>
 <!---->
-    <h1>insertAfter())</h1>
+    <h1>insertAfter(content)            把所有匹配的元素插入到另一个、指定的元素元素集合的后面。</h1>
     <div id="insertAfterTest">
         <p id="p1">i is insertAfter() test.</p>
         <p id="p2">I would like to say: </p><div id="foo">foo foo</div>
     </div>
     <hr>
 <!---->
-    <h1>insertBefore()</h1>
+    <h1>insertBefore(content)           把所有匹配的元素插入到另一个、指定的元素元素集合的前面。</h1>
     <div id="insertBeforeTest">
         <div id="foo">foo foo</div>
         <p>i is insertBefore() test.</p>
     </div>
     <hr>
 <!---->
-    <h1>wrap(html|ele|fn)</h1>
+    <h1>wrap(html|ele|fn)               用HTML结构将匹配元素集合中的每个元素包装起来。</h1>
     <div id="wrapTest">
         <p id="p1">Hello</p>
         <p id="p2">cruel</p>
@@ -120,14 +120,14 @@
     </div>
     <hr>
 <!---->
-    <h1>unwrap()</h1>
+    <h1>unwrap()                        从DOM中删除匹配元素集合的父元素，将匹配的元素保留在原来的位置。</h1>
     <div id="unwrapTest">
         <button>wrap/unwrap</button>
         <p>Hello unwrap()</p>
     </div>
     <hr>
 <!---->
-<h1>wrap(html|ele|fn)</h1>
+<h1>wrapAll(html|ele|fn)            用HTML结构将匹配元素集合中的所有元素包装起来。</h1>
 <div id="wrapAllTest">
     <p>Hello</p>
     <p>cruel</p>
@@ -143,7 +143,7 @@
 </div>
 <hr>
 <!---->
-    <h1>wrapInner()</h1>
+    <h1>wrapInner(html|ele|fn)          在匹配元素集合中的每个元素的内容周围包装一个HTML结构。</h1>
     <div id="wrapInnerTest">
         <div>Hello</div>
         <div>cruel</div>
@@ -154,6 +154,66 @@
     </div>
     <hr>
 <!---->
+    <h1>replaceWith(content|fn)         用提供的新内容替换匹配元素集合中的每个元素，并返回被删除的元素集合。</h1>
+    <div id="replaceWithTest">
+        <div class="inner first">Hello</div>
+        <div class="inner second">And</div>
+        <div class="inner third">Goodbye</div>
+        <p class="p1">Hello 111</p>
+        <p class="p1">cruel 111</p>
+        <p class="p1">World 111</p>
+
+        <p class="p2">Hello 222</p>
+        <p class="p2">cruel 222</p>
+        <p class="p2">World 222</p>
+        <div class="div2">Replaced!</div>
+    </div>
+    <hr>
+<!---->
+    <h1>replaceAll(selector)            用匹配的元素集合替换每个目标元素。</h1>
+    <div id="replaceAllTest">
+        <div class="inner first">Hello</div>
+        <div class="inner second">And</div>
+        <div class="inner third">Goodbye</div>
+        <button class="b1">btn1</button>
+        <p class="inner first">first p</p>
+        <p class="inner second">second p</p>
+        <p class="inner third">third p</p>
+        <button class="b2">btn1</button>
+    </div>
+    <hr>
+<!---->
+    <h1>empty()                         从DOM中删除匹配元素集合的所有子节点。</h1>
+    <div id="emptyTest">
+        <p style="background: yellow;">
+            Hello, <span>Person</span> <em>and person</em>.
+        </p>
+        <button>Call empty() on above paragraph</button>
+    </div>
+    <hr>
+<!---->
+    <h1>remove([expr])                  从DOM中删除匹配的元素集。</h1>
+    <div id="removeTest">
+        <p>Hello</p>
+        how are
+        <p>you?</p>
+        <button>Call remove() on paragraphs</button>
+    </div>
+    <div id="detachTest">
+        <p class="hello">Hello</p>
+        how are
+        <p>you?</p>
+        <button>Call detach() on paragraphs</button>
+    </div>
+    <hr>
+<!---->
+    <h1>clone([Even[,deepEven]])        克隆匹配的DOM元素并且选中这些克隆的副本。</h1>
+    <div id="cloneTest">
+        <b>Hello</b><p>, how are you?</p>
+        <button class="b1">Clone b to p</button>
+        <button class="b2">Clone Me!</button>
+    </div>
+    <hr>
 
 </body>
 </html>
@@ -220,7 +280,48 @@
         });
         $("#wrapInnerTest #a3").wrapInner( document.createElement("b"));
 
-        // 
-        
+        // replaceWith(content|fn)         用提供的新内容替换匹配元素集合中的每个元素，并返回被删除的元素集合。</h1>
+        $("#replaceWithTest div.first").click(function(){
+            $(this).replaceWith("<h2>New heading</h2>");
+        })
+        $("#replaceWithTest div.second").click(function(){
+            $(this).replaceWith($("#replaceWithTest div.third"));
+        })
+        $("#replaceWithTest p.p1").click(function(){
+            $("#replaceWithTest p.p1").replaceWith("<b>Paragraph. </b>");
+        })
+        $("#replaceWithTest p.p2").click(function(){
+            $(this).replaceWith($("#replaceWithTest div.div2"));
+        })
+
+        // replaceAll(selector)            用匹配的元素集合替换每个目标元素。
+        $("#replaceAllTest button.b1").click(function(){
+            $("<h2>New heading</h2>").replaceAll("#replaceAllTest div.inner")        
+        })
+        $("#replaceAllTest button.b2").click(function(){
+            $("#replaceAllTest p.first").replaceAll("#replaceAllTest p.third")    
+        })
+
+        // empty()                         从DOM中删除匹配元素集合的所有子节点。
+        $("#emptyTest button").click(function(){
+            $("#emptyTest p").empty();
+        })
+
+        // remove([expr])                  从DOM中删除匹配的元素集。
+        $("#removeTest button").click(function(){
+            $("#removeTest p").remove();
+        })
+        $("#detachTest button").click(function(){
+            $("#detachTest p").remove(".hello");
+        })
+
+        // clone([Even[,deepEven]])        克隆匹配的DOM元素并且选中这些克隆的副本。
+        $("#cloneTest button.b1").click(function(){
+            $("#cloneTest b").clone().prependTo("#cloneTest p");
+        })
+        $("#cloneTest button.b2").click(function(){
+            $(this).clone(true).insertAfter(this);
+        })
+
     })
 </script>
