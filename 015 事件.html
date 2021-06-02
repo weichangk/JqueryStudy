@@ -36,13 +36,26 @@
 5. 其他事件
     5.1 blur([[data],fn])                           将事件处理程序绑定到“blur”事件，可在元素上触发该事件。
     5.2 change([[data],fn])                         当元素的值发生改变时，会发生 change 事件。
-    5.3 click([[data],fn])                          触发每一个匹配元素的click事件。
-    5.4 dblclick([[data],fn])                       当双击元素时，会发生 dblclick 事件。
     5.5 error([[data],fn])                          当元素遇到错误时（当元素没有正确载入时），发生 error 事件。在 jQuery 版本 1.8 中被废弃。
     5.6 focus([[data],fn])                          当元素获得焦点时，触发 focus 事件。
     5.7 focusin([data],fn)                          当元素获得焦点时，触发 focusin 事件。focusin事件跟focus事件区别在于，他可以在父元素上检测子元素获取焦点的情况。
     5.8 focusout([data],fn)                         当元素失去焦点时触发 focusout 事件。focusout事件跟blur事件区别在于，他可以在父元素上检测子元素失去焦点的情况。
-    5.9 keydown([[data],fn])                        当键盘或按钮被按下时，发生 keydown 事件。
+    5.9 keydown([[data],fn])                        当键盘或按钮被按下时，发生 keydown 事件。如果在文档元素上进行设置，则无论元素是否获得焦点，该事件都会发生。
+    5.10 keypress([[data],fn])                      keypress 事件与 keydown 事件类似。当按钮被按下时发生该事件。然而，keypress 事件不会触发所有的键（比如 ALT、CTRL、SHIFT、ESC）。请使用 keydown() 方法来检查这些键。
+    5.11 keyup([[data],fn])                         当按钮被松开时，发生 keyup 事件。它发生在当前获得焦点的元素上。如果在文档元素上进行设置，则无论元素是否获得焦点，该事件都会发生。
+    5.12 mousedown([[data],fn])                     当鼠标指针移动到元素上方，并按下鼠标按键时，会发生 mousedown 事件。
+    5.13 mouseup([[data],fn])                       当在元素上放松鼠标按钮时，会发生 mouseup 事件。与 click 事件不同，mouseup 事件仅需要放松按钮。当鼠标指针位于元素上方时，放松鼠标按钮就会触发该事件。
+    5.14 mouseenter([[data],fn])                    当鼠标指针穿过元素时，会发生 mouseenter 事件。该事件大多数时候会与mouseleave 事件一起使用。
+    5.15 mouseleave([[data],fn])                    当鼠标指针离开元素时，会发生 mouseleave 事件。该事件大多数时候会与mouseenter 事件一起使用。
+    5.16 mousemove([[data],fn])                     当鼠标指针在指定的元素中移动时，就会发生 mousemove 事件。
+    5.17 mouseover([[data],fn])                     当鼠标指针位于元素上方时，会发生 mouseover 事件。该事件大多数时候会与 mouseout 事件一起使用。与 mouseenter 事件不同，不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件
+    5.18 mouseout([[data],fn])                      当鼠标指针从元素上移开时，发生 mouseout 事件。该事件大多数时候会与 mouseover 事件一起使用。与 mouseleave 事件不同，mouseout 事件在鼠标指针离开被选元素或任意子元素时都会被触发，mouseleave 事件只有在鼠标指针离开被选元素时被触发
+    5.19 resize([[data],fn])                        当调整浏览器窗口的大小时，发生 resize 事件。
+    5.20 scroll([[data],fn])                        当用户滚动指定的元素时，会发生 scroll 事件。scroll 事件适用于所有可滚动的元素和 window 对象（浏览器窗口）。
+    5.21 select([[data],fn])                        当 textarea 或文本类型的 input 元素中的文本被选择时，会发生 select 事件。
+    5.21 submit([[data],fn])                        当提交表单时，会发生 submit 事件。该事件只适用于表单元素。
+
+
 -->
 <html lang="en">
 <head>
@@ -185,23 +198,38 @@
     <hr>
 <!---->
     <h1>5.9 keydown([[data],fn])                        当键盘或按钮被按下时，发生 keydown 事件。</h1>
-    <div>
-
+    <div id="keydownTest">
+        <label for="target">Type Something:</label>
+        <input type="text" name="" id="target">
+        <button>Trigger the handler</button>
     </div>
     <hr>
 <!---->
-    <h1></h1>
-    <div>
-
+    <h1>5.12 鼠标相关事件。</h1>
+    <div id="mousedownTest"> 
+        <p class="mousedown">mousedown 事件测试</p>
+        <p class="mouseenter">mouseenter 事件测试</p>
+        <p class="mousemove">mousemove 事件测试</p>
+        <div class="mouseover" style="height: 200px; background-color: antiquewhite;">
+            <p>mouseover 事件测试</p>
+        </div>
     </div>
     <hr>
 <!---->
-    <h1></h1>
-    <div>
-
+    <h1>select([[data],fn])                        当 textarea 或文本类型的 input 元素中的文本被选择时，会发生 select 事件。</h1>
+    <div id="selectTest">
+        <input type="text" value="select">
     </div>
     <hr>
 <!---->
+    <h1>submit([[data],fn])                        当提交表单时，会发生 submit 事件。该事件只适用于表单元素。</h1>
+    <form id="submitTest" action="http://www.baidu.com">
+        请输入：
+        <input type="text" name="text" value="correct">
+        <span></span>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form> 
 </body>
 </html>
 <script src="js/jquery-3.6.0.js"></script>
@@ -386,4 +414,71 @@
     })
 
     // 5.9 keydown([[data],fn])                        当键盘或按钮被按下时，发生 keydown 事件。
+    var keydownTestTriggered = 0;
+    $("#keydownTest input[type = 'text']").keydown(function(event){
+        if(event.which == 13)
+        event.preventDefault();
+
+        keydownTestTriggered++;
+        let msg = "Handler for .keydown() called " + keydownTestTriggered + " time(s).";
+        console.log(msg)
+        console.log(event)
+    })
+
+    // 5.12 鼠标相关事件。
+    $("#mousedownTest .mousedown").mousedown(function(){
+        console.log("按下鼠标")
+    })
+    $("#mousedownTest .mousedown").mouseup(function(){
+        console.log("释放鼠标")
+    })
+    $("#mousedownTest .mouseenter").mouseenter(function(){
+        console.log("鼠标指针移动到元素")
+    })
+    $("#mousedownTest .mouseenter").mouseleave(function(){
+        console.log("鼠标指针离开了元素")
+    })
+    $("#mousedownTest .mousemove").mousemove(function(){
+        console.log(event.pageX + ", " + event.pageY)
+    })
+    $("#mousedownTest .mouseover").mouseover(function(){
+        console.log("鼠标指针移动到元素 mouseover")
+    })
+    $("#mousedownTest .mouseover").mouseout(function(){
+        console.log("鼠标指针离开了元素 mouseout")
+    })
+    $("#mousedownTest .mouseover").mouseenter(function(){
+        console.log("鼠标指针移动到元素 mouseenter")
+    })
+    $("#mousedownTest .mouseover").mouseleave(function(){
+        console.log("鼠标指针离开了元素 mouseleave")
+    })
+
+    // 5.19 resize([[data],fn])                        当调整浏览器窗口的大小时，发生 resize 事件。
+    $(window).resize(function(){
+        console.log($(window).width() + "   " + $(window).height());
+    });
+
+    // 5.20 scroll([[data],fn])                        当用户滚动指定的元素时，会发生 scroll 事件。scroll 事件适用于所有可滚动的元素和 window 对象（浏览器窗口）。
+    let scrollx = 0;
+    $(window).scroll(function(){
+        console.log(scrollx += 1);
+    });
+    
+    // select([[data],fn])                        当 textarea 或文本类型的 input 元素中的文本被选择时，会发生 select 事件。
+    $("#selectTest input[type=text]").select(function(){
+        alert($(this).val());
+    })
+
+    // submit([[data],fn])                        当提交表单时，会发生 submit 事件。该事件只适用于表单元素。
+    $("#submitTest").submit(function(){
+        if ($("#submitTest input[type=text]").first().val() === "correct" ) {
+            $("#submitTest span").text("Validated...").show();
+            return;
+        }
+ 
+        $("#submitTest span").text("Not valid!").show().fadeOut( 1000 );
+        event.preventDefault();
+    })
+
 </script>
