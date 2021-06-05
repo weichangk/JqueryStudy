@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- 
+1. show()                   显示一个元素
+2. hide()                   隐藏一个元素
+3. toggle()                 依据当前状态切换显示/隐藏状态
+4. slideDown()              以向下滑动展示的方式显示元素
+5. slideUp()                以向上卷动的方式藏起元素
+6. slideToggle()            以滑动/卷动方式切换元素的展开/收起状态
+7. fadeIn()                 元素以淡入的方式显示出来
+8. fadeOut()                元素以淡出的方式消失
+9. fadeTo()                 淡入或淡出到某个透明度
+
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        div.show{
+            background: #def3ca;
+            margin: 3px;
+            width: 80px;
+            display: none;
+            float: left;
+            text-align: center;
+        }
+        div.slideDown {
+            background: #de9a44;
+            margin: 3px;
+            width: 80px;
+            height: 40px;
+            display: none;
+            float: left;
+        }
+
+        #slide-image{
+            width: 170px;
+            height: 172px;
+            border: 2px solid #05609a;
+            overflow: hidden;
+        }
+        #slide-image img{
+            display: none;
+            width: auto;
+            height: auto;
+        }
+        #slideimagenav{
+            list-style-type: none;
+            margin: 10px, 0, 10px;
+            padding: 0;
+        }
+        #slideimagenav li{
+            float: left;
+            width: 30px;
+        }
+        #slideimagenav li a{
+            text-decoration: none;
+            background: #05609a;
+            color: #fff;
+            padding: 5px;
+        }
+        #slideimagenav li a.active{
+            background: #b4f114;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>1. show()                   显示一个元素</h1>
+    <div id="showTest">
+        <button class="show">show</button>
+        <button class="hide">hide</button>
+        <div class="show">hello</div>
+        <div class="show">show()</div>
+        <div class="show">or</div>
+        <div class="show">hide()</div>
+    </div>
+    <hr>
+<!---->
+    <h1>3. toggle()                 依据当前状态切换显示/隐藏状态</h1>
+    <div id="toggleTest">
+        <button>toggle</button>
+        <p>hello</p>
+        <p style="display: none;">toggle...</p>
+    </div>
+    <hr>
+<!---->
+    <h1>4. slideDown()              以向下滑动展示的方式显示元素</h1>
+    <div id="slideDownTest">
+        <button class="slideDown">slideDown</button>
+        <button class="slideUp">slideUp</button>
+        <div class="slideDown"></div>
+        <div class="slideDown"></div>
+        <div class="slideDown"></div>
+    </div>
+    <hr>
+<!---->
+    <h1>6. slideToggle()            以滑动/卷动方式切换元素的展开/收起状态</h1>
+    <div id="slideToggleTest">
+        <button>slideToggle</button>
+        <p>slideToggleTest</p>
+    </div>
+    <hr>
+<!---->
+    <h1>7. 使用淡入淡出效果制作简单得图库</h1>
+    <div id="fadeInTest">
+        <h1>jQuery Images Galore.</h1>
+    </div>
+    <hr>
+<!---->
+    <h1>8. 使用延时创建定时执行动画</h1>
+    <div id="delayTest">
+        <a href="#" class="show-tip">learn more</a>
+        <div class="tool-tip">
+            Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
+            Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
+            Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
+        </div>
+    </div>
+    <hr>
+<!---->
+    <h1>9. 使用多种特效创建简单阅读器</h1>
+    <div id="readerTest">
+        <h1>jQuery Latest News</h1>
+    </div>
+    <hr>
+<!---->
+
+</body>
+</html>
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    // 1. show()                   显示一个元素
+    $("#showTest button.show").click(function(){
+        let hideCookie = document.cookie;
+        if(!hideCookie)
+        {
+            $("#showTest div.show").first().show("fast", function showNext(){
+                $(this).next("div").show("fast", showNext);
+            })
+        }
+    })
+    $("#showTest button.hide").click(function(){
+        $("#showTest div.show").hide(1000);
+        setCookie();
+    })
+    function setCookie(){
+        let expirDate = new Date();
+        expirDate.setDate(expirDate.getDate() + 1);
+        document.cookie = "name=hideCookie;expires=";// + expirDate.toUTCString();  //cookie没设置成功！！！
+    }
+    
+    // 2. hide()                   隐藏一个元素
+
+    // 3. toggle()                 依据当前状态切换显示/隐藏状态
+    $("#toggleTest button").click(function(){
+        $("#toggleTest p").toggle();
+    })
+
+    // 4. slideDown()              以向下滑动展示的方式显示元素
+    $("#slideDownTest button.slideDown").click(function(){
+        $("#slideDownTest div").slideDown("slow");
+    })
+    $("#slideDownTest button.slideUp").click(function(){
+        $("#slideDownTest div").slideUp("slow");
+    })
+
+    // 5. slideUp()                以向上卷动的方式藏起元素
+
+    // 6. slideToggle()            以滑动/卷动方式切换元素的展开/收起状态
+    $("#slideToggleTest button").click(function(){
+        $("#slideToggleTest p").slideToggle("slow");
+    })
+
+    // 7. 使用淡入淡出效果制作简单得图库
+    var slideArray = [
+        "slideimage1.jpg",
+        "slideimage2.jpg",
+        "slideimage3.jpg",
+        "slideimage4.jpg",
+        "slideimage5.jpg",
+    ];
+    var imgDir = "images/016/slideimage";
+    $("#fadeInTest").append('<div id="slide-image"></div>');
+    $("#slide-image").html('<img src="' + imgDir + '1.jpg" alt=""/>')
+    $("#slide-image").after('<ul id="slideimagenav"></ul><button class="fadeout">淡出</button><button class="fadeto">淡出透明</button>')
+    for(var i=0; i<slideArray.length; i++)
+    {
+        var slidetext = i+1;
+        $("#slideimagenav").append('<li><a href="#" rel="'+ slidetext + '">' + slidetext + '</a></li>')
+    }
+    $("#slideimagenav li a").click(function(){
+        var numslide = $(this).attr('rel');
+        $("#slide-image").html('<img src="' + imgDir + numslide + '.jpg" alt=""/>');
+        $("#slide-image img").fadeIn("alow");
+        $("#slideimagenav li a").removeClass('active');
+        $(this).addClass('active');
+    })
+    $("#slideimagenav li a").eq(0).click();
+    $("#fadeInTest button.fadeout").click(function(){
+        $("#slide-image img").fadeOut();
+    })
+    $("#fadeInTest button.fadeto").click(function(){
+        $("#slide-image img").fadeTo(1000, 0.4);
+    })
+
+    // 8. 使用延时创建定时执行动画
+    $("#delayTest a.show-tip").hover(
+        function(){
+            $("#delayTest div.tool-tip").fadeIn(900);
+        },
+        function(){
+            $("#delayTest div.tool-tip").delay(1000).fadeOut(900);
+        }
+    )
+
+    // 9. 使用多种特效创建简单阅读器
+    var newsArray = [
+        "1. 虽然没有完全遵循 MVVM 模型，但是 Vue 的设计也受到了它的启发。因此在文档中经常会使用 vm (ViewModel 的缩写) 这个变量名表示 Vue 实例",
+        "2 .当创建一个 Vue 实例时，你可以传入一个选项对象",
+        "3. 一个 Vue 应用由一个通过 new Vue 创建的根 Vue 实例，以及可选的嵌套的、可复用的组件树组成",
+        "4. 当一个 Vue 实例被创建时，它将 data 对象中的所有的 property 加入到 Vue 的响应式系统中",
+        "5. 每个 Vue 实例在被创建时都要经过一系列的初始化过程——例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等",
+        "6. 每个 Vue 实例在被创建时都要经过一系列的初始化过程——例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等",
+    ]
+
+    var newsLength = newsArray.length;
+    var newsInterval = 200;
+
+    $("#readerTest h1").after('<ul id="news-feed"></ul>')
+    for(var i=0; i<newsLength; i++)
+    {
+        $("#news-feed").append('<li>' + newsArray[i] +'</li>')
+    }
+    function slideHeadline(){
+        $('#news-feed li:last').clone().prependTo('#news-feed').css('display', 'none');
+        $('#news-feed li:first').fadeIn(1000).slideDown(500);
+        $('#news-feed li:last').remove(); 
+    }
+    setInterval(slideHeadline, newsInterval);
+</script>
